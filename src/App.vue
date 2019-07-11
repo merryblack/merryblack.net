@@ -1,6 +1,6 @@
 <template lang="pug">
   div#app
-    navigation
+    //navigation
       <!--router-link(to="/") Home-->
       <!--router-link(to="/about") About-->
     router-view

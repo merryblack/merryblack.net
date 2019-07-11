@@ -2,6 +2,8 @@
   div#hello
     div.layers(:class="'page'+pageIndex")
       div.layer.layer1
+        router-link(to="/about") About
+        router-link(to="/first") First
       div.layer.layer2
       div.layer.layer3
       div.layer.layer4
