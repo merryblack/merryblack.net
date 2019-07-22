@@ -1,22 +1,11 @@
 <template lang="pug">
   div#hello
-    div.layers(:class="'page'+pageIndex")
-      div.layer.layer1
-        router-link(to="/about") About
-        router-link(to="/first") First
-      div.layer.layer2
-      div.layer.layer3
-      div.layer.layer4
-      div.layer.layer5
-    div.pagination
-      div.dot(:class="{selected: (pageIndex===1)}")
-      div.dot(:class="{selected: (pageIndex===2)}")
-      div.dot(:class="{selected: (pageIndex===3)}")
-      div.dot(:class="{selected: (pageIndex===4)}")
-      div.dot(:class="{selected: (pageIndex===5)}")
+    div.layers(:class="bg")
 </template>
 
 <script>
+import { getRandomIntInclusive } from '@/helpers/utils';
+
 export default {
   name: 'Hello',
   props: {
@@ -24,117 +13,157 @@ export default {
   },
   data() {
     return {
-      wheeling: false,
-      pageIndex: 1,
+      bg: '',
     };
   },
-  created() {
-    window.addEventListener('wheel', this.onWheel);
+  mounted() {
+    this.bg = `bg-${getRandomIntInclusive(1, 30)}`;
+    console.log(this.bg);
   },
   destroyed() {
-    window.removeEventListener('wheel', this.onWheel);
   },
   methods: {
-    onWheel(e) {
-      if (e.deltaY > 30 && !this.wheeling && this.pageIndex < 5) {
-        this.wheeling = true;
-        this.pageIndex += 1;
-      } else if (e.deltaY < -30 && !this.wheeling && this.pageIndex > 1) {
-        this.wheeling = true;
-        this.pageIndex -= 1;
-      } else if (e.deltaY < 5 && e.deltaY > -5) {
-        this.wheeling = false;
-      }
-    },
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+  /*@import "../assets/style/mixins";*/
+
 #hello {
   width: 100vw;
   height: 100vh;
   position: absolute;
   overflow-y: hidden;
-
-  @media (max-device-width: 768px) {
-    overflow-y: scroll;
-  }
+  background: url("../assets/images");
 
   .layers {
     width: 100vw;
-    height: 500vh;
-    position: absolute;
-    top: 0;
-
-    transition: top .5s ease-in-out;
-    @media (min-device-width: 768px) {
-      &.page2 {
-        top: -100vh;
-      }
-      &.page3 {
-        top: -200vh;
-      }
-      &.page4 {
-        top: -300vh;
-      }
-      &.page5 {
-        top: -400vh;
-      }
-    }
-  }
-
-  .layer {
-    width: 100vw;
     height: 100vh;
-    background-color: pink;
-
-    &.layer1 {
-      opacity: 1;
-    }
-    &.layer2 {
-      opacity: 0.75;
-    }
-    &.layer3 {
-      opacity: 0.5;
-    }
-    &.layer4 {
-      opacity: 0.25;
-    }
-    &.layer5 {
-      opacity: 0;
-    }
+    position: absolute;
   }
 
-  .pagination {
-    position: fixed;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2080;
-    @media (max-device-width: 768px) {
-      display: none;
-    }
+  .bg-1 {
+    background: url("../assets/images/bg-1.jpg");
+    background-size: cover;
   }
-  .pagination .dot {
-    position: relative;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
-    margin: 10px 10px;
-    transition: background-color ease 0.5s;
-    cursor: pointer;
+  .bg-2 {
+    background: url("../assets/images/bg-2.jpg");
+    background-size: cover;
   }
-  .pagination.black .dot.selected {
-    background: #333;
+  .bg-3 {
+    background: url("../assets/images/bg-3.jpg");
+    background-size: cover;
   }
-  .pagination.black .dot {
-    background: rgba(100, 100, 100, 0.4);
+  .bg-4 {
+    background: url("../assets/images/bg-4.jpg");
+    background-size: cover;
   }
-  .pagination .dot.selected {
-    background: white;
+  .bg-5 {
+    background: url("../assets/images/bg-5.jpg");
+    background-size: cover;
   }
+  .bg-6 {
+    background: url("../assets/images/bg-6.jpg");
+    background-size: cover;
+  }
+  .bg-7 {
+    background: url("../assets/images/bg-7.jpg");
+    background-size: cover;
+  }
+  .bg-8 {
+    background: url("../assets/images/bg-8.jpg");
+    background-size: cover;
+  }
+  .bg-9 {
+    background: url("../assets/images/bg-9.jpg");
+    background-size: cover;
+  }
+  .bg-10 {
+    background: url("../assets/images/bg-10.jpg");
+    background-size: cover;
+  }
+  .bg-11 {
+    background: url("../assets/images/bg-11.jpg");
+    background-size: cover;
+  }
+  .bg-12 {
+    background: url("../assets/images/bg-12.jpg");
+    background-size: cover;
+  }
+  .bg-13 {
+    background: url("../assets/images/bg-13.jpg");
+    background-size: cover;
+  }
+  .bg-14 {
+    background: url("../assets/images/bg-14.jpg");
+    background-size: cover;
+  }
+  .bg-15 {
+    background: url("../assets/images/bg-15.jpg");
+    background-size: cover;
+  }
+  .bg-16 {
+    background: url("../assets/images/bg-16.jpg");
+    background-size: cover;
+  }
+  .bg-17 {
+    background: url("../assets/images/bg-17.jpg");
+    background-size: cover;
+  }
+  .bg-18 {
+    background: url("../assets/images/bg-18.jpg");
+    background-size: cover;
+  }
+  .bg-19 {
+    background: url("../assets/images/bg-19.jpg");
+    background-size: cover;
+  }
+  .bg-20 {
+    background: url("../assets/images/bg-20.jpg");
+    background-size: cover;
+  }
+  .bg-21 {
+    background: url("../assets/images/bg-21.jpg");
+    background-size: cover;
+  }
+  .bg-22 {
+    background: url("../assets/images/bg-22.jpg");
+    background-size: cover;
+  }
+  .bg-23 {
+    background: url("../assets/images/bg-23.jpg");
+    background-size: cover;
+  }
+  .bg-24 {
+    background: url("../assets/images/bg-24.jpg");
+    background-size: cover;
+  }
+  .bg-25 {
+    background: url("../assets/images/bg-25.jpg");
+    background-size: cover;
+  }
+  .bg-26 {
+    background: url("../assets/images/bg-26.jpg");
+    background-size: cover;
+  }
+  .bg-27 {
+    background: url("../assets/images/bg-27.jpg");
+    background-size: cover;
+  }
+  .bg-28 {
+    background: url("../assets/images/bg-28.jpg");
+    background-size: cover;
+  }
+  .bg-29 {
+    background: url("../assets/images/bg-29.jpg");
+    background-size: cover;
+  }
+  .bg-30 {
+    background: url("../assets/images/bg-30.jpg");
+    background-size: cover;
+  }
+
 }
 </style>
